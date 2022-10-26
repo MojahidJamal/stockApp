@@ -98,54 +98,56 @@ class _newItemState extends State<newItem> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  getImage();
-                },
-                child: Container(
-                  color: Colors.grey[200],
-                  width: 100,
-                  height: 100,
-                  child: image != null
-                      ? Image.file(image!)
-                      : Container(
-                          width: 100,
-                          height: 100,
-                          child: Icon(Icons.add_a_photo_rounded)),
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    getImage();
+                  },
+                  child: Container(
+                    color: Colors.grey[200],
+                    width: 100,
+                    height: 100,
+                    child: image != null
+                        ? Image.file(image!)
+                        : Container(
+                            width: 100,
+                            height: 100,
+                            child: Icon(Icons.add_a_photo_rounded)),
+                  ),
                 ),
-              ),
-              textFormWidget(controller: nameController, labelText: 'Name'),
-              textFormWidget(
-                controller: sizeController,
-                labelText: 'Size',
-              ),
-              textFormWidget(
-                controller: quantityController,
-                labelText: 'Quantty',
-              ),
-              textFormWidget(
-                controller: priceController,
-                labelText: 'Price',
-              ),
-              RaisedButton(
-                  child: Text('Save'),
-                  onPressed: () {
-                    EasyLoading.show(
-                      status: 'Loading...',
-                      maskType: EasyLoadingMaskType.clear,
-                    );
+                textFormWidget(controller: nameController, labelText: 'Name'),
+                textFormWidget(
+                  controller: sizeController,
+                  labelText: 'Size',
+                ),
+                textFormWidget(
+                  controller: quantityController,
+                  labelText: 'Quantty',
+                ),
+                textFormWidget(
+                  controller: priceController,
+                  labelText: 'Price',
+                ),
+                RaisedButton(
+                    child: Text('Save'),
+                    onPressed: () {
+                      EasyLoading.show(
+                        status: 'Loading...',
+                        maskType: EasyLoadingMaskType.clear,
+                      );
 
-                    _sendDataToSecondScreen();
+                      _sendDataToSecondScreen();
 
-                    //_sendDataToSecondScreen(context);
-                  })
-            ],
+                      //_sendDataToSecondScreen(context);
+                    })
+              ],
+            ),
           ),
         ),
       ),

@@ -7,25 +7,8 @@ import 'package:stock/search_page.dart';
 import 'home_page.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-void configLoading() {
-  EasyLoading.instance
-    ..displayDuration = const Duration(milliseconds: 2000)
-    ..indicatorType = EasyLoadingIndicatorType.cubeGrid
-    ..loadingStyle = EasyLoadingStyle.custom
-    ..indicatorSize = 45.0
-    ..radius = 10.0
-    ..progressColor = Colors.white
-    ..backgroundColor = Color(0xFF3d3650)
-    ..indicatorColor = Colors.white
-    ..textColor = Colors.white
-    ..maskColor = Colors.white
-    ..userInteractions = false
-    ..dismissOnTap = false;
-}
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configLoading();
 
   final keyApplicationId = 'oFpYdrFz6zP2dOMAHBQCFmhdZensQsjgfl03TUgx';
   final keyClientKey = 'RoAFOfs38guD2t4ZGI0f7dPtfR9TacFt9iZvSm4D';
@@ -72,7 +55,7 @@ class _homePageState extends State<homePage> {
   // Recive q1 = Recive(q: 'moj', p: ['jma']);
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    Widget expa = Scaffold(
       body: tabs[widget.currentIndex],
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: widget.currentIndex,
@@ -107,6 +90,14 @@ class _homePageState extends State<homePage> {
           ),
         ],
       ),
+    );
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: expa,
+      builder: EasyLoading.init(),
+      // localizationsDelegates: context.localizationDelegates,
+      // supportedLocales: context.supportedLocales,
+      //locale: context.locale,
     );
   }
 }
