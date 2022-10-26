@@ -44,6 +44,7 @@ dependencies:
   multi_image_picker2:
   cached_network_image:
   anim_search_bar: ^2.0.2
+  animated_text_kit:
 
 #  parse_server_sdk: ^3.1.0
 

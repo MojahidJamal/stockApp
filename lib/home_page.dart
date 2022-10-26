@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
+import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:stock/number_of_items.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class menuPage extends StatefulWidget {
   const menuPage({Key? key}) : super(key: key);
@@ -36,21 +39,44 @@ class _menuPageState extends State<menuPage> {
                   ),
                 ),
               ),
+              Divider(
+                thickness: 3,
+              ),
               Container(
                 height: 50,
-                color: Colors.grey.shade500,
+                //  color: Colors.grey.shade500,
                 alignment: Alignment.centerLeft,
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    'INVENTORY SUMMARY',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFFD6D6D6),
-                    ),
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      TypewriterAnimatedText(
+                        'INVENTORY SUMMARY',
+                        textStyle: TextStyle(
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.purple,
+                        ),
+                        speed: Duration(milliseconds: 20),
+                      ),
+                    ],
+                    totalRepeatCount: 2,
+                    pause: Duration(milliseconds: 1000),
+                    displayFullTextOnTap: true,
+                    stopPauseOnTap: true,
                   ),
+                  // child: Text(
+                  //   'INVENTORY SUMMARY',
+                  //   style: TextStyle(
+                  //     fontSize: 15,
+                  //     fontWeight: FontWeight.bold,
+                  //     color: Color(0xFFD6D6D6),
+                  //   ),
+                  // ),
                 ),
+              ),
+              Divider(
+                thickness: 3,
               ),
               SizedBox(
                 height: 8,
@@ -80,7 +106,7 @@ class _menuPageState extends State<menuPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('9'),
+                                child: ItemsNum(),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -148,7 +174,7 @@ class _menuPageState extends State<menuPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('10'),
+                                child: ItemsNum(),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -175,7 +201,7 @@ class _menuPageState extends State<menuPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('9'),
+                                child: Text('\$'),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -188,6 +214,12 @@ class _menuPageState extends State<menuPage> {
                     ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Divider(
+                thickness: 3,
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
