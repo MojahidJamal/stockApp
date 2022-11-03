@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
@@ -36,6 +38,7 @@ class _itemsPageState extends State<itemsPage> {
   late List<String> sizes = [widget.size!];
   late List<String> amounts = [widget.quantity!];
   late List<String> prices = [widget.price!];
+  int? counter;
 
   // List<String> test = [];
 
@@ -97,78 +100,152 @@ class _itemsPageState extends State<itemsPage> {
                                 child: Column(
                                   children: [
                                     Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
-                                        GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    itemDetails(index: index),
-                                              ),
-                                            );
-                                          },
-                                          child: Container(
-                                            // color: Colors.grey[200],
-                                            width: 100,
-                                            height: 100,
-                                            child: snapshot.data[index]
-                                                        ['itmeImage'] !=
-                                                    null
-                                                ? CachedNetworkImage(
-                                                    imageUrl: snapshot
-                                                            .data[index]
-                                                        ['itmeImage']['url'])
-                                                : const Icon(
-                                                    Icons.image,
-                                                  ),
-                                          ),
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                        Row(
                                           children: [
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
+                                            GestureDetector(
+                                              onTap: () {
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        itemDetails(
+                                                            index: index),
+                                                  ),
+                                                );
+                                              },
                                               child: Container(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  snapshot.data[index]
-                                                      ['itemName'],
+                                                // color: Colors.grey[200],
+                                                width: 100,
+                                                height: 100,
+                                                child: snapshot.data[index]
+                                                            ['itmeImage'] !=
+                                                        null
+                                                    ? CachedNetworkImage(
+                                                        imageUrl: snapshot
+                                                                    .data[index]
+                                                                ['itmeImage']
+                                                            ['url'])
+                                                    : const Icon(
+                                                        Icons.image,
+                                                      ),
+                                              ),
+                                            ),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerLeft,
+                                                    child: Text(
+                                                      snapshot.data[index]
+                                                          ['itemName'],
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Container(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  snapshot.data[index]
-                                                      ['itemSize'],
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerLeft,
+                                                    child: Text(
+                                                      snapshot.data[index]
+                                                          ['itemSize'],
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Container(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(snapshot.data[index]
-                                                    ['itemQuantity']),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.all(8.0),
-                                              child: Container(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(snapshot.data[index]
-                                                    ['itemPrice']),
-                                              ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerLeft,
+                                                    child: Text(
+                                                        snapshot.data[index]
+                                                            ['itemQuantity']),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Container(
+                                                    alignment:
+                                                        Alignment.centerLeft,
+                                                    child: Text(
+                                                        snapshot.data[index]
+                                                            ['itemPrice']),
+                                                  ),
+                                                ),
+                                              ],
                                             ),
                                           ],
+                                        ),
+                                        Container(
+                                          padding: EdgeInsets.all(3),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
+                                              color: Theme.of(context)
+                                                  .accentColor),
+                                          child: Row(
+                                            children: [
+                                              InkWell(
+                                                  onTap: () {},
+                                                  child: Icon(
+                                                    Icons.remove,
+                                                    color: Colors.white,
+                                                    size: 16,
+                                                  )),
+                                              Container(
+                                                margin: EdgeInsets.symmetric(
+                                                    horizontal: 3),
+                                                padding: EdgeInsets.symmetric(
+                                                    horizontal: 3, vertical: 2),
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            3),
+                                                    color: Colors.white),
+                                                child: counter == null
+                                                    ? Text(
+                                                        snapshot.data[index]
+                                                            ['itemQuantity'],
+                                                        style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 16))
+                                                    : Text(
+                                                        counter.toString(),
+                                                        style: TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 16),
+                                                      ),
+                                              ),
+                                              InkWell(
+                                                  onTap: () {
+                                                    if (counter == null) {
+                                                      counter = int.parse(
+                                                          snapshot.data[index]
+                                                              ['itemQuantity']);
+                                                    }
+
+                                                    setState(() {
+                                                      counter = (counter! + 1);
+                                                    });
+                                                  },
+                                                  child: Icon(
+                                                    Icons.add,
+                                                    color: Colors.white,
+                                                    size: 16,
+                                                  )),
+                                            ],
+                                          ),
                                         ),
                                       ],
                                     ),
