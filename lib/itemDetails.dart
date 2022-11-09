@@ -64,7 +64,7 @@ class _itemDetailsState extends State<itemDetails> {
                                       snapshot.data[widget.index]['itemName'],
                                       style: TextStyle(
                                           fontSize: 25,
-                                          color: Color(0xFF262626),
+                                          color: Color(0xFFF4717F),
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ],
@@ -83,7 +83,7 @@ class _itemDetailsState extends State<itemDetails> {
                                       'Size',
                                       style: TextStyle(
                                           fontSize: 25,
-                                          color: Colors.teal,
+                                          color: Color(0xFF262626),
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
@@ -109,14 +109,14 @@ class _itemDetailsState extends State<itemDetails> {
                                       'Price',
                                       style: TextStyle(
                                           fontSize: 25,
-                                          color: Colors.black38,
+                                          color: Color(0xFF262626),
                                           fontWeight: FontWeight.bold),
                                     ),
                                     Text(
                                       snapshot.data[widget.index]['itemPrice'],
                                       style: TextStyle(
                                           fontSize: 25,
-                                          color: Colors.black38,
+                                          color: Color(0xFFF4717F),
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ],
@@ -154,7 +154,7 @@ class _itemDetailsState extends State<itemDetails> {
                                           decoration: BoxDecoration(
                                               borderRadius:
                                                   BorderRadius.circular(5),
-                                              color: Colors.black38),
+                                              color: Color(0xFFF4717F)),
                                           child: Row(
                                             children: [
                                               InkWell(
@@ -231,7 +231,7 @@ class _itemDetailsState extends State<itemDetails> {
                               ),
                               ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                      primary: Colors.black38),
+                                      primary: Color(0xFFF4717F)),
                                   onPressed: () {},
                                   child: Text('Save'))
                             ],
