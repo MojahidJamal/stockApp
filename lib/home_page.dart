@@ -4,6 +4,8 @@ import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:stock/number_of_items.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+import 'number_of_quantity.dart';
+
 class menuPage extends StatefulWidget {
   const menuPage({Key? key}) : super(key: key);
 
@@ -32,7 +34,7 @@ class _menuPageState extends State<menuPage> {
                         'Dashboard',
                         style: TextStyle(
                             fontSize: 40,
-                            color: Color(0xFF262626),
+                            color: Color(0xFF443E3E),
                             fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -55,7 +57,7 @@ class _menuPageState extends State<menuPage> {
                         textStyle: TextStyle(
                           fontSize: 22.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.purple,
+                          color: Color(0xFFF4717F),
                         ),
                         speed: Duration(milliseconds: 20),
                       ),
@@ -102,7 +104,10 @@ class _menuPageState extends State<menuPage> {
                             children: const [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Icon(Icons.insert_drive_file_outlined),
+                                child: Icon(
+                                  Icons.insert_drive_file_outlined,
+                                  color: Color(0xFFF4717F),
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -110,7 +115,12 @@ class _menuPageState extends State<menuPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('Items'),
+                                child: Text(
+                                  'Items',
+                                  style: TextStyle(
+                                      color: Color(0xFF443E3E),
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),
@@ -129,7 +139,10 @@ class _menuPageState extends State<menuPage> {
                             children: const [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Icon(Icons.folder),
+                                child: Icon(
+                                  Icons.folder,
+                                  color: Color(0xFFF4717F),
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -137,7 +150,12 @@ class _menuPageState extends State<menuPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('Folders'),
+                                child: Text(
+                                  'Folders',
+                                  style: TextStyle(
+                                      color: Color(0xFF443E3E),
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),
@@ -170,15 +188,23 @@ class _menuPageState extends State<menuPage> {
                             children: const [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Icon(Icons.inventory),
+                                child: Icon(
+                                  Icons.inventory,
+                                  color: Color(0xFFF4717F),
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: ItemsNum(),
+                                child: QuantNum(),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('Quantity'),
+                                child: Text(
+                                  'Quantity',
+                                  style: TextStyle(
+                                      color: Color(0xFF443E3E),
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),
@@ -197,7 +223,10 @@ class _menuPageState extends State<menuPage> {
                             children: const [
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Icon(Icons.monetization_on_outlined),
+                                child: Icon(
+                                  Icons.monetization_on_outlined,
+                                  color: Color(0xFFF4717F),
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -205,7 +234,12 @@ class _menuPageState extends State<menuPage> {
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('Total Value'),
+                                child: Text(
+                                  'Total Value',
+                                  style: TextStyle(
+                                      color: Color(0xFF443E3E),
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ],
                           ),

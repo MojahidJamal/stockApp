@@ -65,14 +65,14 @@ class _homePageState extends State<homePage> {
           SalomonBottomBarItem(
             icon: Icon(Icons.home),
             title: Text("Home"),
-            selectedColor: Colors.purple,
+            selectedColor: Color(0xFFF4717F),
           ),
 
           /// Items
           SalomonBottomBarItem(
             icon: Icon(Icons.view_list_rounded),
             title: Text("Items"),
-            selectedColor: Colors.pink,
+            selectedColor: Colors.teal,
           ),
 
           /// Search
@@ -86,7 +86,7 @@ class _homePageState extends State<homePage> {
           SalomonBottomBarItem(
             icon: Icon(Icons.person),
             title: Text("Profile"),
-            selectedColor: Colors.teal,
+            selectedColor: Colors.purple,
           ),
         ],
       ),

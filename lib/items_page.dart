@@ -99,155 +99,131 @@ class _itemsPageState extends State<itemsPage> {
                                 padding: const EdgeInsets.all(8.0),
                                 child: Column(
                                   children: [
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            GestureDetector(
-                                              onTap: () {
-                                                Navigator.push(
-                                                  context,
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        itemDetails(
-                                                            index: index),
-                                                  ),
-                                                );
-                                              },
-                                              child: Container(
-                                                // color: Colors.grey[200],
-                                                width: 100,
-                                                height: 100,
-                                                child: snapshot.data[index]
-                                                            ['itmeImage'] !=
-                                                        null
-                                                    ? CachedNetworkImage(
-                                                        imageUrl: snapshot
-                                                                    .data[index]
-                                                                ['itmeImage']
-                                                            ['url'])
-                                                    : const Icon(
-                                                        Icons.image,
-                                                      ),
-                                              ),
-                                            ),
-                                            Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                    Container(
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      itemDetails(index: index),
+                                                ),
+                                              );
+                                            },
+                                            child: Row(
                                               children: [
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.centerLeft,
-                                                    child: Text(
-                                                      snapshot.data[index]
-                                                          ['itemName'],
+                                                Container(
+                                                  // color: Colors.grey[200],
+                                                  width: 100,
+                                                  height: 100,
+                                                  child: snapshot.data[index]
+                                                              ['itmeImage'] !=
+                                                          null
+                                                      ? CachedNetworkImage(
+                                                          imageUrl: snapshot
+                                                                          .data[
+                                                                      index]
+                                                                  ['itmeImage']
+                                                              ['url'])
+                                                      : const Icon(
+                                                          Icons.image,
+                                                        ),
+                                                ),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Container(
+                                                        alignment: Alignment
+                                                            .centerLeft,
+                                                        child: Text(
+                                                          snapshot.data[index]
+                                                              ['itemName'],
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.centerLeft,
-                                                    child: Text(
-                                                      snapshot.data[index]
-                                                          ['itemSize'],
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Container(
+                                                        alignment: Alignment
+                                                            .centerLeft,
+                                                        child: Text(
+                                                          snapshot.data[index]
+                                                              ['itemSize'],
+                                                        ),
+                                                      ),
                                                     ),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.centerLeft,
-                                                    child: Text(
-                                                        snapshot.data[index]
-                                                            ['itemQuantity']),
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.all(8.0),
-                                                  child: Container(
-                                                    alignment:
-                                                        Alignment.centerLeft,
-                                                    child: Text(
-                                                        snapshot.data[index]
-                                                            ['itemPrice']),
-                                                  ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              8.0),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          Text('Quantity:   '),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    left: 8.0),
+                                                            child: Container(
+                                                              alignment: Alignment
+                                                                  .centerLeft,
+                                                              child: Text(snapshot
+                                                                          .data[
+                                                                      index][
+                                                                  'itemQuantity']),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
+                                                          const EdgeInsets.only(
+                                                              left: 8.0),
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceEvenly,
+                                                        children: [
+                                                          Text(
+                                                              'Price:         '),
+                                                          Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                    .all(8.0),
+                                                            child: Container(
+                                                              alignment: Alignment
+                                                                  .centerLeft,
+                                                              child: Text(snapshot
+                                                                          .data[
+                                                                      index][
+                                                                  'itemPrice']),
+                                                            ),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                        Container(
-                                          padding: EdgeInsets.all(3),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                              color: Theme.of(context)
-                                                  .accentColor),
-                                          child: Row(
-                                            children: [
-                                              InkWell(
-                                                  onTap: () {},
-                                                  child: Icon(
-                                                    Icons.remove,
-                                                    color: Colors.white,
-                                                    size: 16,
-                                                  )),
-                                              Container(
-                                                margin: EdgeInsets.symmetric(
-                                                    horizontal: 3),
-                                                padding: EdgeInsets.symmetric(
-                                                    horizontal: 3, vertical: 2),
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            3),
-                                                    color: Colors.white),
-                                                child: counter == null
-                                                    ? Text(
-                                                        snapshot.data[index]
-                                                            ['itemQuantity'],
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16))
-                                                    : Text(
-                                                        counter.toString(),
-                                                        style: TextStyle(
-                                                            color: Colors.black,
-                                                            fontSize: 16),
-                                                      ),
-                                              ),
-                                              InkWell(
-                                                  onTap: () {
-                                                    if (counter == null) {
-                                                      counter = int.parse(
-                                                          snapshot.data[index]
-                                                              ['itemQuantity']);
-                                                    }
-
-                                                    setState(() {
-                                                      counter = (counter! + 1);
-                                                    });
-                                                  },
-                                                  child: Icon(
-                                                    Icons.add,
-                                                    color: Colors.white,
-                                                    size: 16,
-                                                  )),
-                                            ],
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                     const Divider(
                                       thickness: 3,

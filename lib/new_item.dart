@@ -171,13 +171,20 @@ class _newItemState extends State<newItem> {
 
     if (carResponse.success) {
       EasyLoading.showSuccess('Item Added');
-      Navigator.push(
+      Navigator.pushAndRemoveUntil(
           context,
           MaterialPageRoute(
-            builder: (context) => homePage(
-              currentIndex: 1,
-            ),
-          ));
+              builder: (C) => homePage(
+                    currentIndex: 1,
+                  )),
+          (route) => false);
+      // Navigator.push(
+      //     context,
+      //     MaterialPageRoute(
+      //       builder: (context) => homePage(
+      //         currentIndex: 1,
+      //       ),
+      //     ));
     } else {
       EasyLoading.showError('Error, Try again');
     }
