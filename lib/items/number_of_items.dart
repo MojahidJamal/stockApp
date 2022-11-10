@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
+import '../constants/color_constants.dart';
+
 class ItemsNum extends StatefulWidget {
   const ItemsNum({Key? key}) : super(key: key);
 
@@ -21,10 +23,17 @@ class _ItemsNumState extends State<ItemsNum> {
                   height: 10,
                 )
               : snapshot.data != null
-                  ? Container(child: Text(snapshot.data.length.toString()))
+                  ? Container(
+                      child: Text(snapshot.data.length.toString(),
+                          style: TextStyle(
+                              color: kSecondaryColor,
+                              fontWeight: FontWeight.bold)))
                   : Center(
                       child: Container(
-                      child: Text('0'),
+                      child: Text('0',
+                          style: TextStyle(
+                              color: kSecondaryColor,
+                              fontWeight: FontWeight.bold)),
                     ));
         },
       ),

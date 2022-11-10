@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:stock/constants/color_constants.dart';
+
+import 'package:stock/constants/color_constants.dart';
 
 class QuantNum extends StatefulWidget {
   const QuantNum({Key? key}) : super(key: key);
@@ -21,10 +24,17 @@ class _QuantNumState extends State<QuantNum> {
                   height: 10,
                 )
               : snapshot.data != null
-                  ? Container(child: Text(snapshot.data.toString()))
+                  ? Container(
+                      child: Text(snapshot.data.toString(),
+                          style: TextStyle(
+                              color: kSecondaryColor,
+                              fontWeight: FontWeight.bold)))
                   : Center(
                       child: Container(
-                      child: Text('0'),
+                      child: Text('0',
+                          style: TextStyle(
+                              color: kSecondaryColor,
+                              fontWeight: FontWeight.bold)),
                     ));
         },
       ),

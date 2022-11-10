@@ -18,16 +18,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:stock/items_page.dart';
-import 'package:stock/menu.dart';
+import 'package:stock/items/items_page.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-
-import 'package:stock/send_function.dart';
-import 'package:stock/test.dart';
-import 'main.dart';
-import 'text_form.dart';
-import 'send_function.dart';
+import '../constants/color_constants.dart';
+import '../main.dart';
+import '../text_form.dart';
 
 class newItem extends StatefulWidget {
   newItem({Key? key}) : super(key: key);
@@ -54,8 +51,6 @@ class _newItemState extends State<newItem> {
   TextEditingController quantityController = TextEditingController();
   TextEditingController priceController = TextEditingController();
 
-  Test mj = Test();
-
   // final picker = ImagePicker();
   File? image;
 
@@ -73,6 +68,7 @@ class _newItemState extends State<newItem> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: kPrimaryColor,
         leading: Center(
             child: InkWell(
                 onTap: () {
@@ -134,7 +130,8 @@ class _newItemState extends State<newItem> {
                   controller: priceController,
                   labelText: 'Price',
                 ),
-                RaisedButton(
+                ElevatedButton(
+                    style: ElevatedButton.styleFrom(primary: kPrimaryColor),
                     child: Text('Save'),
                     onPressed: () {
                       EasyLoading.show(

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
-import 'package:stock/items_page.dart';
+import 'package:stock/items/items_page.dart';
 import 'package:stock/profile_page.dart';
 import 'package:stock/search_page.dart';
-import 'home_page.dart';
+import 'constants/color_constants.dart';
+import 'homePage/home_page.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
 void main() async {
@@ -26,7 +27,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData(scaffoldBackgroundColor: Color(0xF77747F)),
+      theme: ThemeData(primarySwatch: Colors.purple
+          // scaffoldBackgroundColor: kPrimaryColor,
+          // backgroundColor: kPrimaryColor,
+          // primaryColor: kPrimaryColor,
+          ),
       home: homePage(
         currentIndex: 0,
       ),
@@ -65,14 +70,14 @@ class _homePageState extends State<homePage> {
           SalomonBottomBarItem(
             icon: Icon(Icons.home),
             title: Text("Home"),
-            selectedColor: Color(0xFFF4717F),
+            selectedColor: kPrimaryColor,
           ),
 
           /// Items
           SalomonBottomBarItem(
             icon: Icon(Icons.view_list_rounded),
             title: Text("Items"),
-            selectedColor: Colors.teal,
+            selectedColor: kSecondary,
           ),
 
           /// Search

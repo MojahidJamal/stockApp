@@ -3,62 +3,26 @@ import 'dart:ffi';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:stock/itemDetails.dart';
-import 'package:stock/menu.dart';
-import 'package:stock/new_folder.dart';
-import 'package:stock/new_item.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:stock/items/itemDetails.dart';
 
-import 'test.dart';
-import 'package:stock/menu.dart';
+import 'package:stock/new_folder.dart';
+import 'package:stock/items/new_item.dart';
+
+import 'package:stock/constants/color_constants.dart';
 
 class itemsPage extends StatefulWidget {
-  // itemsPage({Key? key, this.name, this.size, this.quantity, this.price})
-  //     : super(key: key);
-  itemsPage({Key? key, this.name, this.size, this.price, this.quantity})
-      : super(key: key);
-  late dynamic? name;
-  late dynamic? size;
-  late dynamic? quantity;
-  late dynamic? price;
+  itemsPage({Key? key}) : super(key: key);
 
   @override
   State<itemsPage> createState() => _itemsPageState();
 }
 
 class _itemsPageState extends State<itemsPage> {
-  List<String> entries = <String>[
-    'https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=',
-    'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80'
-  ];
-
-  late List<String> names = [widget.name!];
-  late List<String> sizes = [widget.size!];
-  late List<String> amounts = [widget.quantity!];
-  late List<String> prices = [widget.price!];
-  int? counter;
-
-  // List<String> test = [];
-
-  // List<Test> test = [
-  //   Test(size: 's', name: 's', quantity: 'ww', price: 'z'),
-  //   // size: widget.size,
-  //   // name: widget.name,
-  //   // quantity: widget.quantity,
-  //   // price: widget.price),
-  // ];
-
-  // List<String?> entries = <String>[
-  //   'https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=',
-  //   'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8aHVtYW58ZW58MHx8MHx8&w=1000&q=80'
-  // ];
-
   @override
   Widget build(BuildContext context) {
     print('vvvvvvvvvvvv');
-    print(Menu().count.toString());
+    //print(Menu().count.toString());
     return Scaffold(
       body: SafeArea(
         child: FutureBuilder(
@@ -240,6 +204,7 @@ class _itemsPageState extends State<itemsPage> {
       ),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
+        backgroundColor: kPrimaryColor,
         onPressed: () {
           /// test this comment , this is copy from roda screen edit insurance ///
 

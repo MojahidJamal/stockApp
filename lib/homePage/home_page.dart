@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
-import 'package:stock/number_of_items.dart';
+import 'package:stock/items/number_of_items.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:stock/items/number_of_quantity.dart';
 
-import 'number_of_quantity.dart';
+import '../constants/color_constants.dart';
+
 
 class menuPage extends StatefulWidget {
   const menuPage({Key? key}) : super(key: key);
@@ -57,7 +59,7 @@ class _menuPageState extends State<menuPage> {
                         textStyle: TextStyle(
                           fontSize: 22.0,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFFF4717F),
+                          color: kPrimaryColor,
                         ),
                         speed: Duration(milliseconds: 20),
                       ),
@@ -106,7 +108,7 @@ class _menuPageState extends State<menuPage> {
                                 padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.insert_drive_file_outlined,
-                                  color: Color(0xFFF4717F),
+                                  color: KPrimary2,
                                 ),
                               ),
                               Padding(
@@ -141,12 +143,15 @@ class _menuPageState extends State<menuPage> {
                                 padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.folder,
-                                  color: Color(0xFFF4717F),
+                                  color: KPrimary2,
                                 ),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('0'),
+                                child: Text('0',
+                                    style: TextStyle(
+                                        color: kSecondaryColor,
+                                        fontWeight: FontWeight.bold)),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
@@ -190,7 +195,7 @@ class _menuPageState extends State<menuPage> {
                                 padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.inventory,
-                                  color: Color(0xFFF4717F),
+                                  color: KPrimary2,
                                 ),
                               ),
                               Padding(
@@ -225,12 +230,15 @@ class _menuPageState extends State<menuPage> {
                                 padding: EdgeInsets.all(8.0),
                                 child: Icon(
                                   Icons.monetization_on_outlined,
-                                  color: Color(0xFFF4717F),
+                                  color: KPrimary2,
                                 ),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
-                                child: Text('\$'),
+                                child: Text('\$',
+                                    style: TextStyle(
+                                        color: kSecondaryColor,
+                                        fontWeight: FontWeight.bold)),
                               ),
                               Padding(
                                 padding: EdgeInsets.all(8.0),
