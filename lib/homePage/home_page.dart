@@ -33,7 +33,7 @@ class _menuPageState extends State<menuPage> {
                     child: const Padding(
                       padding: EdgeInsets.all(8.0),
                       child: Text(
-                        'Dashboard',
+                        'SADA STORE',
                         style: TextStyle(
                             fontSize: 40,
                             color: Color(0xFF443E3E),
