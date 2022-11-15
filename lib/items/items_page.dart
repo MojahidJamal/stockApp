@@ -24,6 +24,7 @@ class _itemsPageState extends State<itemsPage> {
     print('vvvvvvvvvvvv');
     //print(Menu().count.toString());
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: FutureBuilder(
             future: getItemcheck(),
@@ -70,11 +71,17 @@ class _itemsPageState extends State<itemsPage> {
                                         children: [
                                           GestureDetector(
                                             onTap: () {
+                                              print(
+                                                  'nooooooooqqq/////////////');
+                                              print(snapshot.data[index]);
                                               Navigator.push(
                                                 context,
                                                 MaterialPageRoute(
                                                   builder: (context) =>
-                                                      itemDetails(index: index),
+                                                      itemDetails(
+                                                    index: snapshot.data[index],
+                                                    // index: index
+                                                  ),
                                                 ),
                                               );
                                             },
@@ -206,8 +213,6 @@ class _itemsPageState extends State<itemsPage> {
         child: const Icon(Icons.add),
         backgroundColor: kPrimaryColor,
         onPressed: () {
-          /// test this comment , this is copy from roda screen edit insurance ///
-
           showModalBottomSheet(
             context: context,
             builder: (context) => Wrap(children: [

@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(primarySwatch: Colors.purple
+      theme: ThemeData(primarySwatch: Colors.blueGrey
           // scaffoldBackgroundColor: kPrimaryColor,
           // backgroundColor: kPrimaryColor,
           // primaryColor: kPrimaryColor,
@@ -61,6 +61,9 @@ class _homePageState extends State<homePage> {
   @override
   Widget build(BuildContext context) {
     Widget expa = Scaffold(
+      backgroundColor: widget.currentIndex == 1 || widget.currentIndex == 3
+          ? Colors.white
+          : null,
       body: tabs[widget.currentIndex],
       bottomNavigationBar: SalomonBottomBar(
         currentIndex: widget.currentIndex,
