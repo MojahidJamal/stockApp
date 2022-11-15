@@ -44,7 +44,7 @@ class _profilePageState extends State<profilePage> {
                   SizedBox(
                     height: 50,
                     width: 50,
-                    child: Image.asset('assets/images/face2.png'),
+                    child: Image.asset('assets/images/face4.png'),
                   ),
                   Text(
                     'SADA Store',
