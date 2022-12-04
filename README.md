@@ -1,6 +1,6 @@
 # stock
 
-A new Flutter project.
+A Simple Inventory Control App.
 
 ## Getting Started
 
